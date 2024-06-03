@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polling Application</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+        .poll {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .poll h2 {
+            margin-bottom: 10px;
+        }
+        .poll a {
+            text-decoration: none;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Polling Application</h1>
+    {% for poll_id, poll in polls.items() %}
+    <div class="poll">
+        <h2>{{ poll.question }}</h2>
+        <a href="{{ url_for('poll', poll_id=poll_id) }}">Vote</a>
+    </div>
+    {% endfor %}
+</body>
+</html>
